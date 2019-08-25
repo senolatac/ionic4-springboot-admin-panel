@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let item of productList">
+      <ion-item (click)="detail(item)" detail>
+        <ion-icon name="bowtie" slot="start" color="danger"></ion-icon>
+        <ion-label>
+          <h2>{{item.name}}</h2>
+          <p>{{item.explanation}}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

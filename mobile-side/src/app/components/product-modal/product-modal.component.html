@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{product.id ? 'Edit Product': 'Create Product'}}
+    </ion-title>
+    <ion-buttons slot="end" (click)="delete()" *ngIf="product.id">
+      <ion-button>
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        <form name="form-product" (ngSubmit)="f.form.valid && saveProduct()" #f="ngForm" novalidate>
+          <div padding>
+            <ion-item>
+              <ion-label position="floating">Product Name</ion-label>
+              <ion-input type="text" placeholder="Name" id="name" name="name" [(ngModel)]="product.name" #name="ngModel"
+                required></ion-input>
+              <ion-item *ngIf="f.submitted && !name.valid" no-lines color="danger">
+                <ion-label>Name is required.</ion-label>
+              </ion-item>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Price</ion-label>
+              <ion-input type="number" placeholder="Price" id="price" name="price" [(ngModel)]="product.price"
+                #price="ngModel" required></ion-input>
+              <ion-item *ngIf="f.submitted && !price.valid" no-lines color="danger">
+                <ion-label>Price is required.</ion-label>
+              </ion-item>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Explanation</ion-label>
+              <ion-textarea type="text" placeholder="Explanation" id="explanation" name="explanation"
+                [(ngModel)]="product.explanation" #explanation="ngModel" required></ion-textarea>
+              <ion-item *ngIf="f.submitted && !explanation.valid" no-lines color="danger">
+                <ion-label>Explanation is required.</ion-label>
+              </ion-item>
+            </ion-item>
+          </div>
+
+          <div padding>
+            <ion-button size="large" type="submit" expand="block">Save Changes</ion-button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

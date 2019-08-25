@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Edit User</ion-title>
+    <ion-buttons slot="end" (click)="delete()">
+      <ion-button>
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row justify-content-center>
+      <ion-col align-self-center side-md="6" size-lg="5" size-xs="12">
+        <form name="form-edit" (ngSubmit)="f.form.valid && editUser()" #f="ngForm" novalidate>
+          <div padding>
+            <ion-item>
+              <ion-label position="floating">Full Name</ion-label>
+              <ion-input type="text" placeholder="Full Name" id="name" name="name" [(ngModel)]="user.name"
+                #name="ngModel" required>
+              </ion-input>
+            </ion-item>
+            <ion-item *ngIf="f.submitted && !name.valid" class="help-block" no-lines color="danger">
+              <ion-label>Full name is required.</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input type="text" placeholder="Username" id="username" name="username" [(ngModel)]="user.username"
+                #username="ngModel" required>
+              </ion-input>
+            </ion-item>
+            <ion-item *ngIf="f.submitted && !username.valid" class="help-block" no-lines color="danger">
+              <ion-label>Username is required.</ion-label>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password" disabled readonly placeholder="Password" id="password" name="password"
+                [(ngModel)]="user.password" #password="ngModel">
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Role</ion-label>
+              <ion-select interface="popover" placeholder="Role" name="role" id="role" required [(ngModel)]="user.role"
+                #role="ngModel">
+                <ion-select-option value="USER">User</ion-select-option>
+                <ion-select-option value="ADMIN">Admin</ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-item *ngIf="f.submitted && !role.valid" class="help-block" no-lines color="danger">
+              <ion-label>Role is required.</ion-label>
+            </ion-item>
+          </div>
+
+          <div padding>
+            <ion-button type="submit" size="large" expand="block">Save Changes</ion-button>
+          </div>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

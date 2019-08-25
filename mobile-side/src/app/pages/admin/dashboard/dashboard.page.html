@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Dashboard</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card style="padding: 10px; text-align:center;" color="tertiary">
+    <ion-card-subtitle>Lifetime</ion-card-subtitle>
+    <ion-card-title>Total Users</ion-card-title>
+    <ion-card-content>
+      The number of users beginning to today is:
+      <br/>
+      <h1 style="font-size: 40px; font-weight:900;">{{userCount}}</h1>
+      <br/>
+      <a href="/users" style="color: aliceblue;">Detail</a>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="padding: 10px; text-align:center;" color="secondary">
+      <ion-card-subtitle>Lifetime</ion-card-subtitle>
+      <ion-card-title>Total Products</ion-card-title>
+      <ion-card-content>
+        The number of products beginning to today is:
+        <br/>
+        <h1 style="font-size: 40px; font-weight:900;">{{productCount}}</h1>
+        <br/>
+        <a href="/products">Detail</a>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card style="padding: 10px; text-align:center;" color="warning">
+        <ion-card-subtitle>Lifetime</ion-card-subtitle>
+        <ion-card-title>Total Purchases</ion-card-title>
+        <ion-card-content>
+          The number of purchases beginning to today is:
+          <br/>
+          <h1 style="font-size: 40px; font-weight:900;">{{transactionCount}}</h1>
+          <br/>
+          <a href="/transactions">Detail</a>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

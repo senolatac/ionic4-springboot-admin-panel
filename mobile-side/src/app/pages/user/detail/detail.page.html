@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Product Detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="welcome-card">
+    <ion-img src="/assets/shapes.svg"></ion-img>
+    <ion-card-header>
+      <ion-card-title>Product detail is: {{currentProduct.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Now you can go on with product details...</p>
+      <p><strong>{{productId}}</strong></p>
+      <ion-button color="primary" expand="block" (click)="purchaseProduct()">Purchase Product</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

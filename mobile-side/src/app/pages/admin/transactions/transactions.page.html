@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Transaction List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div *ngFor="let item of transactionList">
+      <ion-item>
+        <ion-icon name="logo-usd" slot="start" color="danger"></ion-icon>
+        <ion-label>
+          <h2>{{item.user.name}}</h2>
+          <p>{{item.product.name}}</p>
+        </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>
